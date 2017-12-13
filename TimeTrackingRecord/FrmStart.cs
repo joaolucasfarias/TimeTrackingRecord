@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TimeTrackingRecord
 {
-    public partial class Form1 : Form
+    public partial class FrmStart : Form
     {
-        public Form1()
+        public FrmStart()
         {
             InitializeComponent();
         }

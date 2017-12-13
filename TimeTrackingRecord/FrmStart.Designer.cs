@@ -1,6 +1,6 @@
 ﻿namespace TimeTrackingRecord
 {
-    partial class Form1
+    partial class FrmStart
     {
         /// <summary>
         /// Required designer variable.
