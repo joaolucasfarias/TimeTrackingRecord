@@ -92,21 +92,31 @@
             // 
             this.txtSalaryHour.DecimalPlaces = 2;
             this.txtSalaryHour.Location = new System.Drawing.Point(21, 94);
-            this.txtSalaryHour.Maximum = decimal.MaxValue;
+            this.txtSalaryHour.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.txtSalaryHour.Name = "txtSalaryHour";
             this.txtSalaryHour.Size = new System.Drawing.Size(120, 20);
             this.txtSalaryHour.TabIndex = 5;
             this.txtSalaryHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSalaryHour.ValueChanged += new System.EventHandler(this.txtSalaryHour_ValueChanged);
             // 
             // txtSalaryMonth
             // 
             this.txtSalaryMonth.DecimalPlaces = 2;
             this.txtSalaryMonth.Location = new System.Drawing.Point(21, 34);
-            this.txtSalaryMonth.Maximum = decimal.MaxValue;
+            this.txtSalaryMonth.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
             this.txtSalaryMonth.Name = "txtSalaryMonth";
             this.txtSalaryMonth.Size = new System.Drawing.Size(120, 20);
             this.txtSalaryMonth.TabIndex = 5;
             this.txtSalaryMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSalaryMonth.ValueChanged += new System.EventHandler(this.txtSalaryMonth_ValueChanged);
             // 
             // FrmConfig
             // 

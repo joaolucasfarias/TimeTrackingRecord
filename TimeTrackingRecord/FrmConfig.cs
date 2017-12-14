@@ -30,5 +30,21 @@ namespace TimeTrackingRecord
             txtSalaryMonth.Value = _salaryMonth;
             txtSalaryHour.Value = _salaryHour;
         }
+
+        private void txtSalaryMonth_ValueChanged(object sender, EventArgs e)
+        {
+            _salaryMonth = txtSalaryMonth.Value;
+            var salaryDay = _salaryMonth / 30;
+            _salaryHour = salaryDay / 8;
+            SetTextBoxes();
+        }
+
+        private void txtSalaryHour_ValueChanged(object sender, EventArgs e)
+        {
+            _salaryHour = txtSalaryHour.Value;
+            var salaryDay = _salaryHour * 8;
+            _salaryMonth = salaryDay * 30;
+            SetTextBoxes();
+        }
     }
 }
