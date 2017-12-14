@@ -92,11 +92,7 @@
             // 
             this.txtSalaryHour.DecimalPlaces = 2;
             this.txtSalaryHour.Location = new System.Drawing.Point(21, 94);
-            this.txtSalaryHour.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
+            this.txtSalaryHour.Maximum = decimal.MaxValue;
             this.txtSalaryHour.Name = "txtSalaryHour";
             this.txtSalaryHour.Size = new System.Drawing.Size(120, 20);
             this.txtSalaryHour.TabIndex = 5;
@@ -106,11 +102,7 @@
             // 
             this.txtSalaryMonth.DecimalPlaces = 2;
             this.txtSalaryMonth.Location = new System.Drawing.Point(21, 34);
-            this.txtSalaryMonth.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
+            this.txtSalaryMonth.Maximum = decimal.MaxValue;
             this.txtSalaryMonth.Name = "txtSalaryMonth";
             this.txtSalaryMonth.Size = new System.Drawing.Size(120, 20);
             this.txtSalaryMonth.TabIndex = 5;
