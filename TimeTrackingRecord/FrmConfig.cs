@@ -27,8 +27,8 @@ namespace TimeTrackingRecord
 
         private void SetTextBoxes()
         {
-            txtSalaryMonth.Text = _salaryMonth.ToString("n2");
-            txtSalaryHour.Text = _salaryHour.ToString("n2");
+            txtSalaryMonth.Value = _salaryMonth;
+            txtSalaryHour.Value = _salaryHour;
         }
     }
 }
