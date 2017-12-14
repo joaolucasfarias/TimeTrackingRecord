@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtSalaryMonth = new System.Windows.Forms.TextBox();
+            this.txtSalaryHour = new System.Windows.Forms.TextBox();
+            this.chkAutomatic = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtSalaryMonth
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtSalaryMonth.Location = new System.Drawing.Point(21, 34);
+            this.txtSalaryMonth.Name = "txtSalaryMonth";
+            this.txtSalaryMonth.Size = new System.Drawing.Size(100, 20);
+            this.txtSalaryMonth.TabIndex = 0;
             // 
-            // textBox2
+            // txtSalaryHour
             // 
-            this.textBox2.Location = new System.Drawing.Point(21, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtSalaryHour.Location = new System.Drawing.Point(21, 94);
+            this.txtSalaryHour.Name = "txtSalaryHour";
+            this.txtSalaryHour.Size = new System.Drawing.Size(100, 20);
+            this.txtSalaryHour.TabIndex = 1;
             // 
-            // checkBox1
+            // chkAutomatic
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(105, 64);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(127, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Automatic calculation";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkAutomatic.AutoSize = true;
+            this.chkAutomatic.Checked = true;
+            this.chkAutomatic.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAutomatic.Location = new System.Drawing.Point(105, 64);
+            this.chkAutomatic.Name = "chkAutomatic";
+            this.chkAutomatic.Size = new System.Drawing.Size(127, 17);
+            this.chkAutomatic.TabIndex = 2;
+            this.chkAutomatic.Text = "Automatic calculation";
+            this.chkAutomatic.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -109,9 +109,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.chkAutomatic);
+            this.Controls.Add(this.txtSalaryHour);
+            this.Controls.Add(this.txtSalaryMonth);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -125,9 +125,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtSalaryMonth;
+        private System.Windows.Forms.TextBox txtSalaryHour;
+        private System.Windows.Forms.CheckBox chkAutomatic;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
