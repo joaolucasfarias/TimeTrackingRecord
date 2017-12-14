@@ -12,9 +12,23 @@ namespace TimeTrackingRecord
 {
     public partial class FrmConfig : Form
     {
+        private decimal _salaryMonth, _salaryHour;
+
         public FrmConfig()
         {
             InitializeComponent();
+        }
+
+        public void SetDefaultTextBoxesAndShowDialog()
+        {
+            SetTextBoxes();
+            ShowDialog();
+        }
+
+        private void SetTextBoxes()
+        {
+            txtSalaryMonth.Text = _salaryMonth.ToString("n2");
+            txtSalaryHour.Text = _salaryHour.ToString("n2");
         }
     }
 }

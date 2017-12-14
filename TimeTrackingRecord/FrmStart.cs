@@ -18,6 +18,6 @@ namespace TimeTrackingRecord
         }
 
         private void btnConfig_Click(object sender, EventArgs e) =>
-            new FrmConfig().ShowDialog();
+            new FrmConfig().SetDefaultTextBoxesAndShowDialog();
     }
 }
