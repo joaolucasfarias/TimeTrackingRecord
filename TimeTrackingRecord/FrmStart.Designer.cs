@@ -53,6 +53,7 @@
             this.btnConfig.TabIndex = 1;
             this.btnConfig.Text = "Config.";
             this.btnConfig.UseVisualStyleBackColor = true;
+            this.btnConfig.Click += new System.EventHandler(this.btnConfig_Click);
             // 
             // btnFinalReport
             // 
