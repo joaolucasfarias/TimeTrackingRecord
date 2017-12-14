@@ -12,7 +12,7 @@ namespace TimeTrackingRecord
 {
     public partial class FrmConfig : Form
     {
-        private decimal _salaryMonth, _salaryHour;
+        private decimal _salaryMonth, _salaryHour, _overtime;
 
         public FrmConfig()
         {
@@ -29,6 +29,7 @@ namespace TimeTrackingRecord
         {
             txtSalaryMonth.Value = _salaryMonth;
             txtSalaryHour.Value = _salaryHour;
+            txtOvertime.Value = _overtime;
         }
 
         private void txtSalaryMonth_ValueChanged(object sender, EventArgs e)
@@ -36,12 +37,23 @@ namespace TimeTrackingRecord
             _salaryMonth = txtSalaryMonth.Value;
             var salaryDay = _salaryMonth / 30;
             _salaryHour = salaryDay / 8;
+            _overtime = _salaryHour + _salaryHour / 2;
             SetTextBoxes();
         }
 
         private void txtSalaryHour_ValueChanged(object sender, EventArgs e)
         {
             _salaryHour = txtSalaryHour.Value;
+            _overtime = _salaryHour + _salaryHour / 2;
+            var salaryDay = _salaryHour * 8;
+            _salaryMonth = salaryDay * 30;
+            SetTextBoxes();
+        }
+
+        private void txtOvertime_ValueChanged(object sender, EventArgs e)
+        {
+            _overtime = txtOvertime.Value;
+            _salaryHour = _overtime * 100 / 150;
             var salaryDay = _salaryHour * 8;
             _salaryMonth = salaryDay * 30;
             SetTextBoxes();

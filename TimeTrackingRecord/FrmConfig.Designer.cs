@@ -143,7 +143,7 @@
             this.txtOvertime.Size = new System.Drawing.Size(120, 20);
             this.txtOvertime.TabIndex = 5;
             this.txtOvertime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtOvertime.ValueChanged += new System.EventHandler(this.txtSalaryHour_ValueChanged);
+            this.txtOvertime.ValueChanged += new System.EventHandler(this.txtOvertime_ValueChanged);
             // 
             // FrmConfig
             // 
