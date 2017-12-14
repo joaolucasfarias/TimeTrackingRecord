@@ -35,8 +35,11 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.txtSalaryHour = new System.Windows.Forms.NumericUpDown();
             this.txtSalaryMonth = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtOvertime = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalaryHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalaryMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOvertime)).BeginInit();
             this.SuspendLayout();
             // 
             // chkAutomatic
@@ -44,7 +47,7 @@
             this.chkAutomatic.AutoSize = true;
             this.chkAutomatic.Checked = true;
             this.chkAutomatic.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAutomatic.Location = new System.Drawing.Point(105, 64);
+            this.chkAutomatic.Location = new System.Drawing.Point(92, 106);
             this.chkAutomatic.Name = "chkAutomatic";
             this.chkAutomatic.Size = new System.Drawing.Size(127, 17);
             this.chkAutomatic.TabIndex = 2;
@@ -63,7 +66,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 78);
+            this.label2.Location = new System.Drawing.Point(18, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 3;
@@ -72,7 +75,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(21, 139);
+            this.btnCancel.Location = new System.Drawing.Point(21, 177);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
@@ -81,7 +84,7 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(139, 139);
+            this.btnOk.Location = new System.Drawing.Point(139, 177);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 4;
@@ -91,7 +94,7 @@
             // txtSalaryHour
             // 
             this.txtSalaryHour.DecimalPlaces = 2;
-            this.txtSalaryHour.Location = new System.Drawing.Point(21, 94);
+            this.txtSalaryHour.Location = new System.Drawing.Point(21, 80);
             this.txtSalaryHour.Maximum = new decimal(new int[] {
             -1,
             -1,
@@ -118,14 +121,40 @@
             this.txtSalaryMonth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtSalaryMonth.ValueChanged += new System.EventHandler(this.txtSalaryMonth_ValueChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Overtime value:";
+            // 
+            // txtOvertime
+            // 
+            this.txtOvertime.DecimalPlaces = 2;
+            this.txtOvertime.Location = new System.Drawing.Point(21, 142);
+            this.txtOvertime.Maximum = new decimal(new int[] {
+            -1,
+            -1,
+            -1,
+            0});
+            this.txtOvertime.Name = "txtOvertime";
+            this.txtOvertime.Size = new System.Drawing.Size(120, 20);
+            this.txtOvertime.TabIndex = 5;
+            this.txtOvertime.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOvertime.ValueChanged += new System.EventHandler(this.txtSalaryHour_ValueChanged);
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(231, 174);
+            this.ClientSize = new System.Drawing.Size(231, 211);
             this.Controls.Add(this.txtSalaryMonth);
+            this.Controls.Add(this.txtOvertime);
             this.Controls.Add(this.txtSalaryHour);
             this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -138,6 +167,7 @@
             this.Text = "Configuration";
             ((System.ComponentModel.ISupportInitialize)(this.txtSalaryHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSalaryMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOvertime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +181,7 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.NumericUpDown txtSalaryHour;
         private System.Windows.Forms.NumericUpDown txtSalaryMonth;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown txtOvertime;
     }
 }
