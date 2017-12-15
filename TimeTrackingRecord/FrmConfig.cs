@@ -27,6 +27,7 @@ namespace TimeTrackingRecord
 
         private void SetTextBoxes()
         {
+            if (!chkAutomatic.Checked) return;
             txtSalaryMonth.Value = _salaryMonth;
             txtSalaryHour.Value = _salaryHour;
             txtOvertime.Value = _overtime;
@@ -57,6 +58,11 @@ namespace TimeTrackingRecord
             var salaryDay = _salaryHour * 8;
             _salaryMonth = salaryDay * 30;
             SetTextBoxes();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

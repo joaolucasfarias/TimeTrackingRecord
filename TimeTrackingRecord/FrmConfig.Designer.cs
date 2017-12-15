@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOk = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.txtSalaryHour = new System.Windows.Forms.NumericUpDown();
             this.txtSalaryMonth = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -82,14 +82,15 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnOk
+            // btnSave
             // 
-            this.btnOk.Location = new System.Drawing.Point(139, 177);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
-            this.btnOk.TabIndex = 4;
-            this.btnOk.Text = "OK";
-            this.btnOk.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(139, 177);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtSalaryHour
             // 
@@ -153,7 +154,7 @@
             this.Controls.Add(this.txtSalaryMonth);
             this.Controls.Add(this.txtOvertime);
             this.Controls.Add(this.txtSalaryHour);
-            this.Controls.Add(this.btnOk);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label2);
@@ -178,7 +179,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnOk;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown txtSalaryHour;
         private System.Windows.Forms.NumericUpDown txtSalaryMonth;
         private System.Windows.Forms.Label label3;
