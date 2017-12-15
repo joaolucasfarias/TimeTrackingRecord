@@ -31,8 +31,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnFinalReport = new System.Windows.Forms.Button();
-            this.lblWorkedTimeText = new System.Windows.Forms.Label();
-            this.lblWorkedTimeNumbers = new System.Windows.Forms.Label();
+            this.lblWorkedTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStart
@@ -64,31 +63,21 @@
             this.btnFinalReport.Text = "Final Report";
             this.btnFinalReport.UseVisualStyleBackColor = true;
             // 
-            // lblWorkedTimeText
+            // lblWorkedTime
             // 
-            this.lblWorkedTimeText.AutoSize = true;
-            this.lblWorkedTimeText.Location = new System.Drawing.Point(12, 9);
-            this.lblWorkedTimeText.Name = "lblWorkedTimeText";
-            this.lblWorkedTimeText.Size = new System.Drawing.Size(70, 13);
-            this.lblWorkedTimeText.TabIndex = 3;
-            this.lblWorkedTimeText.Text = "Worked time:";
-            // 
-            // lblWorkedTimeNumbers
-            // 
-            this.lblWorkedTimeNumbers.AutoSize = true;
-            this.lblWorkedTimeNumbers.Location = new System.Drawing.Point(88, 9);
-            this.lblWorkedTimeNumbers.Name = "lblWorkedTimeNumbers";
-            this.lblWorkedTimeNumbers.Size = new System.Drawing.Size(50, 13);
-            this.lblWorkedTimeNumbers.TabIndex = 4;
-            this.lblWorkedTimeNumbers.Text = "2h 22min";
+            this.lblWorkedTime.AutoSize = true;
+            this.lblWorkedTime.Location = new System.Drawing.Point(12, 9);
+            this.lblWorkedTime.Name = "lblWorkedTime";
+            this.lblWorkedTime.Size = new System.Drawing.Size(116, 13);
+            this.lblWorkedTime.TabIndex = 3;
+            this.lblWorkedTime.Text = "Worked time: 2h 22min";
             // 
             // FrmStartStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 124);
-            this.Controls.Add(this.lblWorkedTimeNumbers);
-            this.Controls.Add(this.lblWorkedTimeText);
+            this.Controls.Add(this.lblWorkedTime);
             this.Controls.Add(this.btnFinalReport);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnStart);
@@ -107,8 +96,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnFinalReport;
-        private System.Windows.Forms.Label lblWorkedTimeText;
-        private System.Windows.Forms.Label lblWorkedTimeNumbers;
+        private System.Windows.Forms.Label lblWorkedTime;
     }
 }
 
