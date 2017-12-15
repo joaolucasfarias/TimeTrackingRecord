@@ -43,6 +43,7 @@
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnConfig
             // 
@@ -71,6 +72,7 @@
             this.lblWorkedTime.Size = new System.Drawing.Size(116, 13);
             this.lblWorkedTime.TabIndex = 3;
             this.lblWorkedTime.Text = "Worked time: 2h 22min";
+            this.lblWorkedTime.Visible = false;
             // 
             // FrmStartStop
             // 

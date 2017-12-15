@@ -77,10 +77,7 @@ namespace TimeTrackingRecord
             var file = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrconfig.txt";
 
             using (var tw = new StreamWriter(file, false, Encoding.UTF8))
-            {
                 tw.WriteLine(valuesJson.ToBase64());
-                tw.Close();
-            }
 
             Close();
         }
