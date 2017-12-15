@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExtensionMethods;
+using Newtonsoft.Json;
 
 namespace TimeTrackingRecord
 {
@@ -62,7 +65,24 @@ namespace TimeTrackingRecord
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            var values = new
+            {
+                Month = _salaryMonth,
+                Hour = _salaryHour,
+                Overtime = _overtime
+            };
 
+            var valuesJson = JsonConvert.SerializeObject(values);
+
+            var file = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrconfig.txt";
+
+            using (var tw = new StreamWriter(file, false, Encoding.UTF8))
+            {
+                tw.WriteLine(valuesJson.ToBase64());
+                tw.Close();
+            }
+
+            Close();
         }
     }
 }
