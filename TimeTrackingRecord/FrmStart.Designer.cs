@@ -32,6 +32,7 @@
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnFinalReport = new System.Windows.Forms.Button();
             this.lblWorkedTime = new System.Windows.Forms.Label();
+            this.btnUpdateWorkedTime = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStart
@@ -74,12 +75,22 @@
             this.lblWorkedTime.Text = "Worked time: 2h 22min";
             this.lblWorkedTime.Visible = false;
             // 
+            // btnUpdateWorkedTime
+            // 
+            this.btnUpdateWorkedTime.Location = new System.Drawing.Point(157, 4);
+            this.btnUpdateWorkedTime.Name = "btnUpdateWorkedTime";
+            this.btnUpdateWorkedTime.Size = new System.Drawing.Size(78, 23);
+            this.btnUpdateWorkedTime.TabIndex = 2;
+            this.btnUpdateWorkedTime.Text = "Update Time";
+            this.btnUpdateWorkedTime.UseVisualStyleBackColor = true;
+            // 
             // FrmStartStop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 124);
             this.Controls.Add(this.lblWorkedTime);
+            this.Controls.Add(this.btnUpdateWorkedTime);
             this.Controls.Add(this.btnFinalReport);
             this.Controls.Add(this.btnConfig);
             this.Controls.Add(this.btnStart);
@@ -99,6 +110,7 @@
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnFinalReport;
         private System.Windows.Forms.Label lblWorkedTime;
+        private System.Windows.Forms.Button btnUpdateWorkedTime;
     }
 }
 
