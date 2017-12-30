@@ -38,6 +38,7 @@ namespace TimeTrackingRecord
             _start = DateTime.Now;
             btnStart.Text = "STOP";
             lblWorkedTime.Visible = true;
+            btnUpdateWorkedTime.Visible = true;
         }
 
         private void Stop()
@@ -54,6 +55,7 @@ namespace TimeTrackingRecord
             _start = DateTime.MinValue;
 
             btnStart.Text = "START";
+            btnUpdateWorkedTime.Visible = false;
         }
 
         private void UpdateWorkedTime()
@@ -67,5 +69,8 @@ namespace TimeTrackingRecord
             lblWorkedTime.Text =
                 $"Worked time: {timeDifferenceHours:00}:{timeDifferenceMinutes:00}:{timeDifferenceSeconds:00}";
         }
+
+        private void btnUpdateWorkedTime_Click(object sender, EventArgs e) =>
+            UpdateWorkedTime();
     }
 }

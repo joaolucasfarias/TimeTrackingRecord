@@ -70,9 +70,9 @@
             this.lblWorkedTime.AutoSize = true;
             this.lblWorkedTime.Location = new System.Drawing.Point(12, 9);
             this.lblWorkedTime.Name = "lblWorkedTime";
-            this.lblWorkedTime.Size = new System.Drawing.Size(116, 13);
+            this.lblWorkedTime.Size = new System.Drawing.Size(70, 13);
             this.lblWorkedTime.TabIndex = 3;
-            this.lblWorkedTime.Text = "Worked time: 2h 22min";
+            this.lblWorkedTime.Text = "Worked time:";
             this.lblWorkedTime.Visible = false;
             // 
             // btnUpdateWorkedTime
@@ -83,6 +83,8 @@
             this.btnUpdateWorkedTime.TabIndex = 2;
             this.btnUpdateWorkedTime.Text = "Update Time";
             this.btnUpdateWorkedTime.UseVisualStyleBackColor = true;
+            this.btnUpdateWorkedTime.Visible = false;
+            this.btnUpdateWorkedTime.Click += new System.EventHandler(this.btnUpdateWorkedTime_Click);
             // 
             // FrmStartStop
             // 
