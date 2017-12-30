@@ -28,34 +28,44 @@ namespace TimeTrackingRecord
         private void btnStart_Click(object sender, EventArgs e)
         {
             if (_start == DateTime.MinValue)
-            {
-                _start = DateTime.Now;
-                btnStart.Text = "STOP";
-                lblWorkedTime.Visible = false;
-            }
+                Start();
             else
-            {
-                _stop = DateTime.Now;
+                Stop();
+        }
 
-                var values = $"{_start};{_stop}";
+        private void Start()
+        {
+            _start = DateTime.Now;
+            btnStart.Text = "STOP";
+            lblWorkedTime.Visible = true;
+        }
 
-                var file = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrecords.txt";
+        private void Stop()
+        {
+            UpdateWorkedTime();
 
-                using (var tw = new StreamWriter(file, true, Encoding.UTF8))
-                    tw.WriteLine(values.ToBase64());
+            var values = $"{_start};{_stop}";
 
-                var timeDifferenceHours = _stop.Subtract(_start).Hours;
-                var timeDifferenceMinutes = _stop.Subtract(_start).Minutes;
-                var timeDifferenceSeconds = _stop.Subtract(_start).Seconds;
+            var file = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrecords.txt";
 
-                lblWorkedTime.Text =
-                    $"Worked time: {timeDifferenceHours:00}:{timeDifferenceMinutes:00}:{timeDifferenceSeconds:00}";
-                lblWorkedTime.Visible = true;
+            using (var tw = new StreamWriter(file, true, Encoding.UTF8))
+                tw.WriteLine(values.ToBase64());
 
-                _start = DateTime.MinValue;
+            _start = DateTime.MinValue;
 
-                btnStart.Text = "START";
-            }
+            btnStart.Text = "START";
+        }
+
+        private void UpdateWorkedTime()
+        {
+            _stop = DateTime.Now;
+
+            var timeDifferenceHours = _stop.Subtract(_start).Hours;
+            var timeDifferenceMinutes = _stop.Subtract(_start).Minutes;
+            var timeDifferenceSeconds = _stop.Subtract(_start).Seconds;
+
+            lblWorkedTime.Text =
+                $"Worked time: {timeDifferenceHours:00}:{timeDifferenceMinutes:00}:{timeDifferenceSeconds:00}";
         }
     }
 }
