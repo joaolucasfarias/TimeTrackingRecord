@@ -37,6 +37,7 @@ namespace TimeTrackingRecord
         {
             _start = DateTime.Now;
             btnStart.Text = "STOP";
+            lblWorkedTime.Text = "Worked time: 00:00:00";
             lblWorkedTime.Visible = true;
             btnUpdateWorkedTime.Visible = true;
         }
