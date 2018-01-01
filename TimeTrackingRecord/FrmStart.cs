@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using ExtensionMethods;
+using Models;
+using System;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ExtensionMethods;
-using Newtonsoft.Json;
 
 namespace TimeTrackingRecord
 {
     public partial class FrmStartStop : Form
     {
-        private DateTime _start, _stop;
+        private readonly WorkedTimeModel _workedTime;
 
         public FrmStartStop()
         {
             InitializeComponent();
+            _workedTime = new WorkedTimeModel();
         }
 
         private void btnConfig_Click(object sender, EventArgs e) =>
@@ -27,7 +22,7 @@ namespace TimeTrackingRecord
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (_start == DateTime.MinValue)
+            if (_workedTime.Start == DateTime.MinValue)
                 Start();
             else
                 Stop();
@@ -35,7 +30,7 @@ namespace TimeTrackingRecord
 
         private void Start()
         {
-            _start = DateTime.Now;
+            _workedTime.StartCounting();
             btnStart.Text = "STOP";
             lblWorkedTime.Text = "Worked time: 00:00:00";
             lblWorkedTime.Visible = true;
@@ -46,14 +41,12 @@ namespace TimeTrackingRecord
         {
             UpdateWorkedTime();
 
-            var values = $"{_start};{_stop}";
+            var values = $"{_workedTime.Start};{_workedTime.Stop}";
 
             var file = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrecords.txt";
 
             using (var tw = new StreamWriter(file, true, Encoding.UTF8))
                 tw.WriteLine(values.ToBase64());
-
-            _start = DateTime.MinValue;
 
             btnStart.Text = "START";
             btnUpdateWorkedTime.Visible = false;
@@ -61,11 +54,11 @@ namespace TimeTrackingRecord
 
         private void UpdateWorkedTime()
         {
-            _stop = DateTime.Now;
+            _workedTime.StopCounting();
 
-            var timeDifferenceHours = _stop.Subtract(_start).Hours;
-            var timeDifferenceMinutes = _stop.Subtract(_start).Minutes;
-            var timeDifferenceSeconds = _stop.Subtract(_start).Seconds;
+            var timeDifferenceHours = _workedTime.DifferenceHours();
+            var timeDifferenceMinutes = _workedTime.DifferenceMinutes();
+            var timeDifferenceSeconds = _workedTime.DifferenceSeconds();
 
             lblWorkedTime.Text =
                 $"Worked time: {timeDifferenceHours:00}:{timeDifferenceMinutes:00}:{timeDifferenceSeconds:00}";
