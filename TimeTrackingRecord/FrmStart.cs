@@ -1,7 +1,9 @@
 ﻿using ExtensionMethods;
 using Models;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -66,5 +68,19 @@ namespace TimeTrackingRecord
 
         private void btnUpdateWorkedTime_Click(object sender, EventArgs e) =>
             UpdateWorkedTime();
+
+        private void btnFinalReport_Click(object sender, EventArgs e)
+        {
+            var recordsPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrecords.txt";
+            if (!File.Exists(recordsPath)) return;
+
+            var recordsFileLines = File.ReadAllLines(recordsPath);
+
+            var records =
+                recordsFileLines
+                    .Where(recordsLine => !string.IsNullOrEmpty(recordsLine))
+                    .Select(recordsLine => new WorkedTimeModel().CreateRecord(recordsLine.FromBase64()))
+                    .ToList();
+        }
     }
 }

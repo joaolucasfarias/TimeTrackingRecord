@@ -12,5 +12,16 @@ namespace Models
 
         public void StopCounting() =>
             Stop = DateTime.Now;
+
+        public WorkedTimeModel CreateRecord(string record)
+        {
+            if (!record.Contains(";")) throw new ArgumentException("Not a valid record", nameof(record));
+
+            var startStop = record.Split(';');
+            Start = DateTime.Parse(startStop[0]);
+            Stop = DateTime.Parse(startStop[1]);
+
+            return this;
+        }
     }
 }

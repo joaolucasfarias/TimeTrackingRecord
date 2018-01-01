@@ -64,6 +64,7 @@
             this.btnFinalReport.TabIndex = 2;
             this.btnFinalReport.Text = "Final Report";
             this.btnFinalReport.UseVisualStyleBackColor = true;
+            this.btnFinalReport.Click += new System.EventHandler(this.btnFinalReport_Click);
             // 
             // lblWorkedTime
             // 
