@@ -96,6 +96,10 @@
       <Project>{f3245b81-0905-407a-aba6-7f0a40e08e86}</Project>
       <Name>ExtensionMethods</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{cad07f38-4b3d-40a5-9412-f450a0998642}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

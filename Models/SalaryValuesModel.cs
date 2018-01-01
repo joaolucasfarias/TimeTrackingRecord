@@ -1,6 +1,6 @@
 ﻿namespace Models
 {
-    class SalaryValuesModel
+    public class SalaryValuesModel
     {
         public decimal Month { get; set; }
         public decimal Hour { get; set; }
