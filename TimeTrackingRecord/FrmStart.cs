@@ -58,9 +58,9 @@ namespace TimeTrackingRecord
         {
             _workedTime.StopCounting();
 
-            var timeDifferenceHours = _workedTime.DifferenceHours();
-            var timeDifferenceMinutes = _workedTime.DifferenceMinutes();
-            var timeDifferenceSeconds = _workedTime.DifferenceSeconds();
+            var timeDifferenceHours = _workedTime.DifferenceHours;
+            var timeDifferenceMinutes = _workedTime.DifferenceMinutes;
+            var timeDifferenceSeconds = _workedTime.DifferenceSeconds;
 
             lblWorkedTime.Text =
                 $"Worked time: {timeDifferenceHours:00}:{timeDifferenceMinutes:00}:{timeDifferenceSeconds:00}";
@@ -81,6 +81,8 @@ namespace TimeTrackingRecord
                     .Where(recordsLine => !string.IsNullOrEmpty(recordsLine))
                     .Select(recordsLine => new WorkedTimeModel().CreateRecord(recordsLine.FromBase64()))
                     .ToList();
+
+
         }
     }
 }

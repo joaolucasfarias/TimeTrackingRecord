@@ -7,6 +7,30 @@ namespace Models
         public DateTime Start { get; private set; }
         public DateTime Stop { get; private set; }
 
+        public int DifferenceHours => SubtractDifferenceHours();
+        private int SubtractDifferenceHours() =>
+            Stop.Subtract(Start).Hours;
+
+        public int DifferenceMinutes => SubtractDifferenceMinutes();
+        private int SubtractDifferenceMinutes() =>
+            Stop.Subtract(Start).Minutes;
+
+        public int DifferenceSeconds => SubtractDifferenceSeconds();
+        private int SubtractDifferenceSeconds() =>
+            Stop.Subtract(Start).Seconds;
+
+        public double TotalDifferenceInHours => SubtractTotalDifferenceInHours();
+        private double SubtractTotalDifferenceInHours() =>
+            Stop.Subtract(Start).TotalHours;
+
+        public double TotalDifferenceInMinutes => SubtractTotalDifferenceInMinutes();
+        private double SubtractTotalDifferenceInMinutes() =>
+            Stop.Subtract(Start).TotalMinutes;
+
+        public double TotalDifferenceInSeconds => SubtractTotalDifferenceInSeconds();
+        private double SubtractTotalDifferenceInSeconds() =>
+            Stop.Subtract(Start).TotalSeconds;
+
         public void StartCounting() =>
             Start = DateTime.Now;
 
