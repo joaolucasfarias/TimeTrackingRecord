@@ -39,8 +39,7 @@ namespace TimeTrackingRecord
         private void txtSalaryMonth_ValueChanged(object sender, EventArgs e)
         {
             _salaryMonth = txtSalaryMonth.Value;
-            var salaryDay = _salaryMonth / 30;
-            _salaryHour = salaryDay / 8;
+            _salaryHour = _salaryMonth / 220;
             _overtime = _salaryHour + _salaryHour / 2;
             SetTextBoxes();
         }
@@ -49,8 +48,7 @@ namespace TimeTrackingRecord
         {
             _salaryHour = txtSalaryHour.Value;
             _overtime = _salaryHour + _salaryHour / 2;
-            var salaryDay = _salaryHour * 8;
-            _salaryMonth = salaryDay * 30;
+            _salaryMonth = _salaryHour * 220;
             SetTextBoxes();
         }
 
@@ -58,8 +56,7 @@ namespace TimeTrackingRecord
         {
             _overtime = txtOvertime.Value;
             _salaryHour = _overtime * 100 / 150;
-            var salaryDay = _salaryHour * 8;
-            _salaryMonth = salaryDay * 30;
+            _salaryMonth = _salaryHour * 220;
             SetTextBoxes();
         }
 
