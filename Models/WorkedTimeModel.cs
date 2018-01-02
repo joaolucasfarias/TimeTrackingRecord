@@ -8,6 +8,9 @@ namespace Models
         public DateTime Stop { get; private set; }
         public double SumTotalMinutesGroup { get; set; }
 
+        public string SumTotalMinutesInHours =>
+            TimeSpan.FromMinutes(SumTotalMinutesGroup).ToString(@"hh\:mm\:ss");
+
         public int DifferenceHours => SubtractDifferenceHours();
         private int SubtractDifferenceHours() =>
             Stop.Subtract(Start).Hours;

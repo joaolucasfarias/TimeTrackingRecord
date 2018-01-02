@@ -2,10 +2,12 @@
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace TimeTrackingRecord
 {
@@ -73,6 +75,8 @@ namespace TimeTrackingRecord
         {
             var recordsPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrecords.txt";
             if (!File.Exists(recordsPath)) return;
+            var configPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ttrconfig.txt";
+            if (!File.Exists(configPath)) return;
 
             var recordsFileLines = File.ReadAllLines(recordsPath);
 
@@ -89,6 +93,38 @@ namespace TimeTrackingRecord
                                     record.Sum(recordSum => recordSum.TotalDifferenceInMinutes))
                     )
                     .ToList();
+
+            var saveAs = new SaveFileDialog
+            {
+                FileName = "Record Report.txt",
+                Filter = @"Text File | *.txt",
+                DefaultExt = "txt",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+            };
+
+            if (saveAs.ShowDialog() != DialogResult.OK) return;
+
+            double totalSalary = 0;
+            var salary =
+                JsonConvert.DeserializeObject<SalaryValuesModel>(File.ReadAllLines(configPath)[0].FromBase64());
+            using (var saveFile = new StreamWriter(saveAs.OpenFile()))
+            {
+                saveFile.WriteLine("Report");
+                saveFile.WriteLine("");
+                foreach (var record in records)
+                {
+                    double totalSalaryDay;
+                    if ((int) record.Start.DayOfWeek != 0)
+                        totalSalaryDay = record.SumTotalMinutesGroup * Convert.ToDouble(salary.Overtime / 60);
+                    else
+                        totalSalaryDay = record.SumTotalMinutesGroup * Convert.ToDouble(salary.Overtime * 2 / 60);
+                    totalSalary += totalSalaryDay;
+                    saveFile.WriteLine(
+                        $"{record.Start:dd/MM/yyyy} => {record.SumTotalMinutesInHours} = {totalSalaryDay:c2}");
+                }
+                saveFile.WriteLine("");
+                saveFile.WriteLine($"Total salary = {totalSalary:c2}");
+            }
         }
     }
 }
