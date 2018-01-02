@@ -6,6 +6,7 @@ namespace Models
     {
         public DateTime Start { get; private set; }
         public DateTime Stop { get; private set; }
+        public double SumTotalMinutesGroup { get; set; }
 
         public int DifferenceHours => SubtractDifferenceHours();
         private int SubtractDifferenceHours() =>
@@ -44,6 +45,22 @@ namespace Models
             var startStop = record.Split(';');
             Start = DateTime.Parse(startStop[0]);
             Stop = DateTime.Parse(startStop[1]);
+
+            return this;
+        }
+
+        public WorkedTimeModel CreateRecord(DateTime start, DateTime stop)
+        {
+            Start = start;
+            Stop = stop;
+
+            return this;
+        }
+
+        public WorkedTimeModel CreateGroupedRecord(DateTime start, double sumTotalMinutesGroup)
+        {
+            Start = start;
+            SumTotalMinutesGroup = sumTotalMinutesGroup;
 
             return this;
         }

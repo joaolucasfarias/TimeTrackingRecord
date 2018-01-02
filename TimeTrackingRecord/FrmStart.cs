@@ -80,9 +80,15 @@ namespace TimeTrackingRecord
                 recordsFileLines
                     .Where(recordsLine => !string.IsNullOrEmpty(recordsLine))
                     .Select(recordsLine => new WorkedTimeModel().CreateRecord(recordsLine.FromBase64()))
+                    .ToList()
+                    .GroupBy(record => record.Start.ToString("MM/dd/yyyy"))
+                    .Select(
+                        record =>
+                            new WorkedTimeModel()
+                                .CreateGroupedRecord(record.First().Start,
+                                    record.Sum(recordSum => recordSum.TotalDifferenceInMinutes))
+                    )
                     .ToList();
-
-
         }
     }
 }
