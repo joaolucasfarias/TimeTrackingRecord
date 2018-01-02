@@ -114,10 +114,10 @@ namespace TimeTrackingRecord
                 foreach (var record in records)
                 {
                     double totalSalaryDay;
-                    if ((int) record.Start.DayOfWeek != 0)
+                    if (record.Start.DayOfWeek != 0)
                         totalSalaryDay = record.SumTotalMinutesGroup * Convert.ToDouble(salary.Overtime / 60);
                     else
-                        totalSalaryDay = record.SumTotalMinutesGroup * Convert.ToDouble(salary.Overtime * 2 / 60);
+                        totalSalaryDay = record.SumTotalMinutesGroup * Convert.ToDouble(salary.FullOvertime / 60);
                     totalSalary += totalSalaryDay;
                     saveFile.WriteLine(
                         $"{record.Start:dd/MM/yyyy} => {record.SumTotalMinutesInHours} = {totalSalaryDay:c2}");
